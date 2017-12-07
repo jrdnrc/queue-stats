@@ -5,9 +5,9 @@ Adds commands to laravel to output information about running queue workers.
 ### Configuration
 ##### Service Provider:  
 If you don't have auto discovery, register this provider in `config/app.php`:  
-`JrdnRc\\QueueStats\\QueueStatsServiceProvider`  
+`\JrdnRc\QueueStats\QueueStatsServiceProvider::class`  
 ##### Configuration File
-`$ php artisan vendor:publish JrdnRc\\QueueStats\\QueueStatsServiceProvider`
+`$ php artisan vendor:publish --provider="JrdnRc\\QueueStats\\QueueStatsServiceProvider"`
 
 ```php
 <?php
