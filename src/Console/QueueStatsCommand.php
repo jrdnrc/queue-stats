@@ -93,7 +93,7 @@ final class QueueStatsCommand extends Command
 
         $connection = $this->config->get('queue-stats.redis_connection');
 
-        if (!array_key_exists($connection, $defaults)) {
+        if (false === in_array($connection, $defaults, true)) {
             return $defaults[0];
         }
 
