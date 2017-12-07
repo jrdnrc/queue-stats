@@ -36,7 +36,7 @@ final class QueueStatsCommand extends Command
         parent::__construct();
 
         $this->config = $config;
-        $this->redis = $redis->connection($config->get('queue-stats.redis_connection'));
+        $this->redis = $redis->connection($this->getRedisConnection());
     }
 
     /**
@@ -80,5 +80,23 @@ final class QueueStatsCommand extends Command
         ];
 
         (new Table($this->output))->setHeaders($headers)->setRows($data)->render();
+    }
+
+    /**
+     * @return string
+     */
+    private function getRedisConnection() : string
+    {
+        $connections = array_except($this->config->get('database.redis'), ['client']);
+
+        $defaults = array_keys($connections);
+
+        $connection = $this->config->get('queue-stats.redis_connection');
+
+        if (!array_key_exists($connection, $defaults)) {
+            return $defaults[0];
+        }
+
+        return $connection;
     }
 }
