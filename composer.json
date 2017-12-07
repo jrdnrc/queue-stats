@@ -1,0 +1,37 @@
+{
+    "name": "jrdnrc/queue-stats",
+    "description": "Queue Stats & Config for Laravel",
+    "keywords": [
+        "laravel",
+        "queue"
+    ],
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jordan Crocker",
+            "email": "jordan@jcrocker.uk"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/console": "^5.5",
+        "predis/predis": "^1.1",
+        "illuminate/config": "^5.5",
+        "illuminate/redis": "^5.5",
+        "illuminate/support": "^5.5",
+        "illuminate/container": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "JrdnRc\\QueueStats\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JrdnRc\\QueueStats\\QueueStatsServiceProvider"
+            ]
+        }
+    }
+}
